@@ -1,0 +1,38 @@
+{% extends '_base.html' %}
+
+{% block main %}
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <h2 class="mb-1">Todos os trecos</h2>
+            <p class="text-secondary mb-0">Objetos curiosos, úteis ou completamente misteriosos.</p>
+        </div>
+        <a class="btn btn-primary" href="{{ url_for('new_thing') }}"><i class="fa-solid fa-circle-plus me-1" aria-hidden="true"></i>Cadastrar treco</a>
+    </div>
+
+    {% if total > 0 %}
+        <p class="text-secondary">{{ total }} {{ 'treco encontrado' if total == 1 else 'trecos encontrados' }}.</p>
+        <div class="row g-4">
+            {% for content in contents %}
+                <div class="col-12 col-md-6">
+                    <article class="card h-100 shadow-sm">
+                        <img class="card-img-top" src="{{ content.photo }}" alt="{{ content.name }}">
+                        <div class="card-body">
+                            <h3 class="card-title fs-5">
+                                <a href="{{ url_for('view', thing_id=content.id) }}">{{ content.name }}</a>
+                            </h3>
+                            <p class="card-text">{{ content.description }}</p>
+                            <p class="card-text text-secondary mb-0"><small><i class="fa-solid fa-location-dot me-1" aria-hidden="true"></i>{{ content.location or 'Local desconhecido' }}</small></p>
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state text-center p-5 rounded-4">
+            <div class="display-4 mb-2 text-info" aria-hidden="true"><i class="fa-solid fa-box-open"></i></div>
+            <h3 class="h5">Ainda não há trecos por aqui</h3>
+            <p class="text-secondary">Adicione o primeiro objeto à coleção.</p>
+            <a class="btn btn-primary" href="{{ url_for('new_thing') }}"><i class="fa-solid fa-plus me-1" aria-hidden="true"></i>Cadastrar primeiro treco</a>
+        </div>
+    {% endif %}
+{% endblock %}

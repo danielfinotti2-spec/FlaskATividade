@@ -1,0 +1,52 @@
+{% extends '_base.html' %}
+
+{% block title %}Contato | Cadastro de Trecos{% endblock %}
+
+{% block main %}
+    <div class="mb-4">
+        <h2 class="mb-1"><i class="fa-solid fa-envelope me-2" aria-hidden="true"></i>Fale conosco</h2>
+        <p class="text-secondary">Envie uma mensagem sobre o Cadastro de Trecos.</p>
+    </div>
+
+    <form action="{{ url_for('contato') }}" method="post" class="form-panel">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name" name="name" required value="{{ request.form.get('name', '') }}">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" required value="{{ request.form.get('email', '') }}">
+        </div>
+        <div class="mb-4">
+            <label for="message" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required>{{ request.form.get('message', '') }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane me-1" aria-hidden="true"></i>Enviar mensagem</button>
+    </form>
+    <section class="creator-card mt-5" aria-labelledby="creator-title">
+        <div class="creator-heading">
+            <img class="creator-photo" src="{{ url_for('static', filename='images/criador.jfif') }}" alt="Murdoc, personagem do Gorillaz">
+            <div>
+                <p class="creator-eyebrow mb-1">Quem fez este projeto</p>
+                <h2 class="h4 mb-0" id="creator-title">Criador</h2>
+            </div>
+        </div>
+        <div class="creator-links">
+            <a class="creator-link" href="https://www.instagram.com/euodeene" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i><span>Instagram</span><i class="fa-solid fa-arrow-up-right-from-square creator-external" aria-hidden="true"></i>
+            </a>
+            <a class="creator-link" href="https://www.linkedin.com/in/euodeene" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span><i class="fa-solid fa-arrow-up-right-from-square creator-external" aria-hidden="true"></i>
+            </a>
+            <a class="creator-link" href="https://github.com/euodeene" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span><i class="fa-solid fa-arrow-up-right-from-square creator-external" aria-hidden="true"></i>
+            </a>
+            <a class="creator-link" href="https://www.youtube.com/c/euodeene" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i><span>YouTube</span><i class="fa-solid fa-arrow-up-right-from-square creator-external" aria-hidden="true"></i>
+            </a>
+            <a class="creator-link" href="https://euodeene.shop" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-store" aria-hidden="true"></i><span>Loja</span><i class="fa-solid fa-arrow-up-right-from-square creator-external" aria-hidden="true"></i>
+            </a>
+        </div>
+    </section>
+{% endblock %}

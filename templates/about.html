@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block title %}Sobre | Cadastro de Trecos{% endblock %}
+
+{% block main %}
+    <section class="about-panel">
+        <span class="badge text-bg-info mb-3">Sobre o projeto</span>
+        <h2>Uma coleção de coisas curiosas</h2>
+        <p>O Cadastro de Trecos é um pequeno site desenvolvido com Python, Flask e SQLite.</p>
+        <p>Ele permite visualizar e cadastrar objetos curiosos em uma coleção.</p>
+        <p>Este projeto foi criado como atividade prática de desenvolvimento web.</p>
+        <a class="btn btn-primary mt-2" href="{{ url_for('new_thing') }}">Adicionar um treco</a>
+    </section>
+{% endblock %}

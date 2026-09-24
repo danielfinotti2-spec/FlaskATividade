@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block title %}Termos de Uso | Cadastro de Trecos{% endblock %}
+
+{% block main %}
+    <section>
+        <span class="badge text-bg-info mb-3">Termos de uso</span>
+        <h2>Uso do site</h2>
+        <p>Este site é um projeto acadêmico para cadastrar e visualizar objetos curiosos.</p>
+        <p>Ao cadastrar um treco, informe dados verdadeiros e use apenas imagens que você tenha autorização para compartilhar.</p>
+        <p>As informações cadastradas são usadas somente para exibição nesta coleção de demonstração.</p>
+        <a class="btn btn-outline-primary mt-2" href="{{ url_for('index') }}">Voltar ao início</a>
+    </section>
+{% endblock %}

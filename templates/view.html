@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ content.name }} | <i class="fa-solid fa-list-ul"></i> Cadastro de Trecos{% endblock %}
+
+{% block main %}
+    <p class="mb-4"><a class="text-decoration-none" href="{{ url_for('index') }}">← Voltar para todos os trecos</a></p>
+    <article class="card shadow-sm">
+        <img class="detail-photo" src="{{ content.photo }}" alt="{{ content.name }}">
+        <div class="card-body p-4">
+            <h2 class="card-title">{{ content.name }}</h2>
+            <p class="card-text">{{ content.description }}</p>
+            <h3 class="h5 mt-4">Informações</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item px-0"><i class="fa-solid fa-location-dot me-2" aria-hidden="true"></i>Localização: {{ content.location or 'Não informada' }}</li>
+                <li class="list-group-item px-0"><i class="fa-regular fa-calendar me-2" aria-hidden="true"></i>Cadastrado em: {{ content.created_at }}</li>
+            </ul>
+        </div>
+    </article>
+{% endblock %}

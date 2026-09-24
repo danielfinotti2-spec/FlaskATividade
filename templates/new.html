@@ -1,0 +1,33 @@
+{% extends '_base.html' %}
+
+{% block title %}Novo treco | Cadastro de Trecos{% endblock %}
+
+{% block main %}
+    <div class="mb-4">
+        <h2 class="mb-1">Cadastre um treco</h2>
+        <p class="text-secondary">Conte um pouco sobre esse achado para ele entrar na coleção.</p>
+    </div>
+
+    <form method="post" class="form-panel">
+        <div class="mb-3">
+            <label class="form-label" for="name">Nome do treco <span class="text-danger">*</span></label>
+            <input class="form-control" id="name" name="name" required value="{{ request.form.get('name', '') }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="description">Descrição <span class="text-danger">*</span></label>
+            <textarea class="form-control" id="description" name="description" required rows="5">{{ request.form.get('description', '') }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="location">Onde ele está?</label>
+            <input class="form-control" id="location" name="location" value="{{ request.form.get('location', '') }}">
+        </div>
+        <div class="mb-4">
+            <label class="form-label" for="photo">URL da foto <span class="text-secondary">(opcional)</span></label>
+            <input class="form-control" id="photo" name="photo" type="url" value="{{ request.form.get('photo', '') }}">
+        </div>
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="submit">Salvar treco</button>
+            <a class="btn btn-outline-secondary" href="{{ url_for('index') }}">Cancelar</a>
+        </div>
+    </form>
+{% endblock %}

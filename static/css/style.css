@@ -1,0 +1,106 @@
+:root {
+    color-scheme: dark;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #e5edf2;
+    background: #101820;
+    font-synthesis: none;
+}
+
+body {
+    min-height: 100vh;
+    color: #e5edf2;
+    background: #101820;
+}
+
+.header {
+    color: #fff;
+    background: linear-gradient(120deg, #111a22, #182832);
+    border-bottom: 1px solid #2b3a46;
+    box-shadow: 0 3px 16px #00000030;
+}
+
+.header .navbar { min-height: 76px; }
+.header .navbar-brand { letter-spacing: -.02em; }
+.header .nav-link { padding: .5rem .65rem; color: #e5f5f7; border-radius: .5rem; }
+.header .nav-link:hover { color: #fff; background: #ffffff1a; }
+
+.page-content {
+    max-width: 960px;
+    min-height: 55vh;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    border: 1px solid #2b3a46;
+    border-radius: 18px;
+    background: #18232d;
+    box-shadow: 0 12px 35px #00000030;
+}
+
+.page-content h2, .page-content h3 { color: #e7f2f6; }
+.page-content .text-secondary { color: #a9bac5 !important; }
+.page-content a:not(.btn) { color: #63d2d3; }
+.page-content a:not(.btn):hover { color: #9ce9e7; }
+.card { overflow: hidden; color: #e5edf2; border-color: #2b3a46; border-radius: 14px; background: #202d38; }
+.card-img-top { width: 100%; height: 230px; object-fit: cover; background: #24333e; }
+.detail-photo { display: block; width: 100%; max-height: 480px; object-fit: cover; background: #24333e; }
+.card-title a { color: #63d2d3; text-decoration: none; }
+.card-title a:hover { text-decoration: underline; }
+.btn-primary { --bs-btn-bg: #087e8b; --bs-btn-border-color: #087e8b; --bs-btn-hover-bg: #075d67; --bs-btn-hover-border-color: #075d67; }
+.form-panel { max-width: 680px; }
+.form-label { color: #e5edf2; }
+.form-control { color: #e5edf2; border-color: #40515e; background: #111a22; }
+.form-control:focus { color: #fff; border-color: #36b8bc; background: #111a22; box-shadow: 0 0 0 .25rem #36b8bc30; }
+.form-control::placeholder { color: #9aabb6; }
+.list-group-item { color: #d5e0e6; border-color: #344550; background: transparent; }
+.empty-state, .about-panel { background: #202d38; }
+.badge.text-bg-info { color: #08272d !important; background: #63d2d3 !important; }
+.page-content .alert { color: #e5edf2; }
+footer { color: #a9bac5 !important; }
+
+.creator-card {
+    padding: 1.5rem;
+    border: 1px solid #2b3a46;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #202d38, #192630);
+}
+.creator-heading { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+.creator-photo { width: 72px; height: 72px; flex: 0 0 72px; border: 2px solid #63d2d3; border-radius: 50%; object-fit: cover; }
+.creator-eyebrow { color: #a9bac5; font-size: .85rem; }
+.creator-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: .65rem; }
+.page-content .creator-link {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    padding: .8rem .9rem;
+    border: 1px solid #344550;
+    border-radius: 10px;
+    color: #dce8ed;
+    background: #111a22;
+    text-decoration: none;
+    transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+.page-content .creator-link > i:first-child { width: 1.1rem; color: #63d2d3; text-align: center; }
+.page-content .creator-link:hover { transform: translateY(-2px); border-color: #36b8bc; color: #fff; background: #1b2b35; }
+.creator-external { margin-left: auto; color: #91a7b3; font-size: .7rem; }
+
+.motion-enter {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 550ms ease var(--motion-delay, 0ms), transform 550ms cubic-bezier(.2, .75, .25, 1) var(--motion-delay, 0ms);
+}
+.motion-enter.motion-visible { opacity: 1; transform: translateY(0); }
+.page-content .btn { transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease; }
+.page-content .btn:hover { transform: translateY(-2px); }
+.header .nav-link { transition: color 180ms ease, background-color 180ms ease; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+@media (max-width: 600px) {
+    .header .navbar { flex-wrap: wrap; justify-content: center; padding: .75rem; }
+    .header .navbar-brand { width: 100%; text-align: center; }
+    .header .navbar-nav { margin: .4rem auto 0 !important; }
+    .header .nav-link { padding: .35rem .5rem; font-size: .95rem; }
+    .page-content { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+}
